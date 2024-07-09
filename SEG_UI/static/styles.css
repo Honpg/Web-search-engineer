@@ -1,0 +1,28 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500; 
+    background-image: url('/static/images/background.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+}
+
+.custom-border {
+    border-width: 3px !important; 
+    border-color: #6c757d !important;
+    border-style: solid; 
+}

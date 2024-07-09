@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Book Store</h1>
+        <p class="lead">Please enter any information and we will help you</p>
+        <hr class="my-4">
+        <form action="/" method="post">
+            <div class="form-group">
+                <label for="search_type">Search Type</label>
+                <select class="form-control" id="search_type" name="search_type">
+                    <option value="book_title">Book Title</option>
+                    <option value="author">Author</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="query">What is in your mind?</label>
+                <input type="text" class="form-control" id="query" name="query" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+    {% if results is not none %}
+        <h2>Results for '{{ query }}'</h2>
+        {% if results %}
+            <div class="list-group">
+                {% for result in results %}
+                    <div class="card mb-3 border-secondary">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+                                {% if search_type == 'Book' %}
+                                    <img src="{{ result.imageUrl }}" class="img-fluid" alt="Book image">
+                                {% elif search_type == 'Author' %}
+                                    <img src="{{ result['Images Url'] }}" class="img-fluid" alt="Author image">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body">
+                                    {% if search_type == 'Book' %}
+                                        <h5 class="display-4">{{ result.title }}</h5>
+                                        <p class="card-text"><strong>Author:</strong> {{ result.author }}</p>
+                                        <p class="card-text"><strong>Genre:</strong> {{ result.genres }}</p>
+                                        <p class="card-text"><strong>Description:</strong> {{ result.description[:200] }}...</p>
+                                        <a href="/book/{{ result._id }}" class="btn btn-primary">View Details</a>
+                                    {% elif search_type == 'Author' %}
+                                        <h5 class="display-4">{{ result['Name Author'] }}</h5>
+                                        <p class="card-text"><strong>About:</strong> {{ result.About[:200] }}...</p>
+                                        <p class="card-text"><strong>Average Rating:</strong> {{ result.avgRating }}</p>
+                                        <a href="{{ result['Url author'] }}" class="btn btn-link">Author URL</a>
+                                        <a href="/author/{{ result._id }}" class="btn btn-primary">View Details</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

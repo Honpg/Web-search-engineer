@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <a href="/" class="btn btn-primary mb-3">Back to Home</a>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    {% if search_type == 'Book' %}
+                        <img src="{{ result.imageUrl }}" class="card-img" alt="Book image">
+                    {% elif search_type == 'Author' %}
+                        <img src="{{ result['Images Url'] }}" class="card-img" alt="Author image">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        {% if search_type == 'Book' %}
+                            <h2 class="card-title">{{ result.title }}</h2>
+                            <p class="card-text"><strong>Author:</strong> {{ result.author }}</p>
+                            <p class="card-text"><strong>Publisher:</strong> {{ result.publisher or 'Not available' }}</p>
+                            <p class="card-text"><strong>Published Date:</strong> {{ result.publishDate or 'Not available' }}</p>
+                            <p class="card-text"><strong>Genres:</strong> {{ result.genres }}</p>
+                            <p class="card-text"><strong>Description:</strong> {{ result.description or 'No description available' }}</p>
+                            <p class="card-text"><strong>ISBN:</strong> {{ result.isbn or 'Not available' }}</p>
+                            <p class="card-text"><strong>Series:</strong> {{ result.series or 'Not part of a series' }}</p>
+                            <p class="card-text"><strong>Characters:</strong> {{ result.characters or 'No characters listed' }}</p>
+                            <p class="card-text"><strong>Rating Histogram:</strong> {{ result.ratingHistogram }}</p>
+                            <p class="card-text"><strong>Ratings Count:</strong> {{ result.ratingsCount }}</p>
+                            <p class="card-text"><strong>Reviews Count:</strong> {{ result.reviewsCount }}</p>
+                        {% elif search_type == 'Author' %}
+                            <h2 class="card-title">{{ result['Name Author'] }}</h2>
+                            <p class="card-text"><strong>About:</strong> {{ result.About or 'No information available' }}</p>
+                            <p class="card-text"><strong>Genres:</strong> {{ result.Genres }}</p>
+                            <p class="card-text"><strong>URL:</strong> <a href="{{ result['Url author'] }}">{{ result['Url author'] }}</a></p>
+                            <p class="card-text"><strong>Average Rating:</strong> {{ result.avgRating }}</p>
+                            <p class="card-text"><strong>Ratings Count:</strong> {{ result.RatingsCount }}</p>
+                            <p class="card-text"><strong>Reviews Count:</strong> {{ result.reviewsCount }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .custom-border {
+        border-width: 3px !important;
+    }
+    .card {
+        background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+        color: #000; /* Black text for clarity */
+    }
+    .card-body {
+        padding: 15px;
+    }
+</style>
+{% endblock %}
