@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 api_key = 'W6DrwilOumPcxeg02w2nLP8ALAymcExSW4HjSSLuam5xaXpR5geKrDflPAn0t4Qp'
-client = MongoClient('mongodb+srv://nguyenvanhon732k3:dg3jLFfKeQp6IJ2x@book.yfa6wlr.mongodb.net/')
+client = MongoClient('mongodb+srv://nguyenvanhon732k3:key@book.yfa6wlr.mongodb.net/')
 db = client['Books']
 book_collection = db['Book']
 author_collection = db['Author']
