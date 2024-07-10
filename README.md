@@ -1,6 +1,6 @@
-# Web Search Engine for Books
+# Web Search Engineer for Books
 
-Welcome to the Web Search Engine for Books project! This repository contains the code and documentation for a web search engine specifically designed to help users find books efficiently. Below, you will find a detailed description of the project, including the process of creating the web application, data collection methods, and evaluation metrics.
+Welcome to the Web Search Engineer for Books project! This repository contains the code and documentation for a web search engine specifically designed to help users find books efficiently. Below, you will find a detailed description of the project, including the process of creating the web application, data collection methods, and evaluation metrics.
 
 ## Table of Contents
 
