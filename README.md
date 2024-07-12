@@ -24,7 +24,7 @@ This project aims to develop a robust and efficient web search engine tailored f
 
 The project is divided into three main parts:
 
-1. **Data Collection**: Gathering and preprocessing book data from various sources.
+1. **Data Collection**: Gathering and preprocessing book data from Goodreads sources.
 2. **Web Application Development**: Creating a user-friendly web interface for searching books.
 3. **Evaluation**: Assessing the performance and accuracy of the search engine.
 
